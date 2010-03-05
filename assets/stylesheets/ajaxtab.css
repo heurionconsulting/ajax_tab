@@ -1,0 +1,211 @@
+.ajaxtab_clearheight
+{
+    clear: both;
+}
+
+.ajaxtab_loading_image
+{
+    text-align: center;
+}
+
+/*------------------------------------ Vertical AjaxTab--------------------------------*/
+.vertical_ajaxtab
+{
+    border:0px solid gray;
+    margin: 10px;
+    *margin: 0;
+}
+
+.vertical_ajaxtab .ajaxtab_tabs
+{
+    border:0px solid green;
+    float:left;
+    position:relative;
+    width:15%;
+    z-index:2;
+    padding-top:10px;
+}
+
+.vertical_ajaxtab .ajaxtab_contents
+{
+    -moz-border-radius-bottomleft:10px;
+    -moz-border-radius-bottomright:10px;
+    -moz-border-radius-topleft:10px;
+    -moz-border-radius-topright:10px;
+    background:#C0E0FF none repeat scroll 0 0;
+    border:0px solid red;
+    float:left;
+    min-height:300px;
+    position:relative;
+    width:85%;
+    overflow: auto;
+    z-index:1;
+    *height: 300px;
+    *overflow-y: visible;
+    *overflow-x: auto;
+}
+
+.vertical_ajaxtab .ajaxtab_unsel_tab
+{
+    -moz-user-select: none;
+    padding-left: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 9pt;
+    color: black;
+    cursor: pointer;
+    margin-top: 10px;
+    background: aliceblue;
+    -moz-border-radius-bottomleft:5px;
+    -moz-border-radius-bottomright:0;
+    -moz-border-radius-topleft:5px;
+    -moz-border-radius-topright:0;
+}
+
+.vertical_ajaxtab .ajaxtab_unsel_tab:hover
+{
+    background: #E2EEFF;
+    -moz-border-radius-bottomleft:5px;
+    -moz-border-radius-bottomright:0;
+    -moz-border-radius-topleft:5px;
+    -moz-border-radius-topright:0;
+}
+
+.vertical_ajaxtab .ajaxtab_sel_tab
+{
+    -moz-border-radius-bottomleft:5px;
+    -moz-border-radius-bottomright:0;
+    -moz-border-radius-topleft:5px;
+    -moz-border-radius-topright:0;
+    -moz-user-select:none;
+    background:#C0E0FF none repeat scroll 0 0;
+    border-bottom:0 solid gray;
+    border-left:0 solid gray;
+    border-top:0 solid gray;
+    color:black;
+    font-size:9pt;
+    font-weight: bold;
+    margin-top: 10px;
+    padding-bottom:5px;
+    padding-left:5px;
+    padding-top:5px;
+    text-decoration:underline;
+}
+
+.vertical_ajaxtab .ajaxtab_sel_tab:hover
+{
+}
+
+.vertical_ajaxtab .ajaxtab_unsel_content
+{
+    display: none;
+}
+
+.vertical_ajaxtab .ajaxtab_sel_content
+{
+    margin:10px;
+}
+
+/*------------------------------------ Horizontal AjaxTab--------------------------------*/
+.horizontal_ajaxtab
+{
+    border:0 solid gray;
+    margin:10px;
+}
+
+.horizontal_ajaxtab .ajaxtab_tabs
+{
+    border:0px solid green;
+    position:relative;
+    z-index:2;
+    padding-left:10px;
+}
+
+.horizontal_ajaxtab .ajaxtab_contents
+{
+    -moz-border-radius-bottomleft:10px;
+    -moz-border-radius-bottomright:10px;
+    -moz-border-radius-topleft:10px;
+    -moz-border-radius-topright:10px;
+    background:#C0E0FF none repeat scroll 0 0;
+    border:0 solid gray;
+    min-height:300px;
+    position:relative;
+    z-index:1;
+    padding:10px;
+    *height: 300px;
+    *overflow: visible;
+}
+
+.horizontal_ajaxtab .ajaxtab_unsel_tab
+{
+    -moz-user-select: none;
+    padding:5px;
+    font-size: 9pt;
+    color: black;
+    cursor: pointer;
+    min-width:80px;
+    margin-left: 10px;
+    float: left;
+    text-align: center;
+    background: aliceblue;
+    -moz-border-radius-bottomleft:0;
+    -moz-border-radius-bottomright:0;
+    -moz-border-radius-topleft:5px;
+    -moz-border-radius-topright:5px;
+    *width: 80px;
+    *overflow: visible;
+}
+
+.horizontal_ajaxtab .ajaxtab_unsel_tab:hover
+{
+    background: #E2EEFF;
+    -moz-border-radius-bottomleft:0;
+    -moz-border-radius-bottomright:0;
+    -moz-border-radius-topleft:5px;
+    -moz-border-radius-topright:5px;
+}
+
+.horizontal_ajaxtab .ajaxtab_sel_tab
+{
+    -moz-border-radius-bottomleft:0;
+    -moz-border-radius-bottomright:0;
+    -moz-border-radius-topleft:5px;
+    -moz-border-radius-topright:5px;
+    -moz-user-select:none;
+    background:#C0E0FF none repeat scroll 0 0;
+    border-bottom:0 solid gray;
+    border-left:0 solid gray;
+    border-top:0 solid gray;
+    color:black;
+    float:left;
+    font-size:9pt;
+    min-width:80px;
+    margin-left:10px;
+    padding:5px;
+    text-align: center;
+    font-weight: bold;
+    text-decoration:underline;
+    *width: 80px;
+    *overflow: visible;
+}
+
+.horizontal_ajaxtab .ajaxtab_sel_tab:hover
+{
+}
+
+.horizontal_ajaxtab .ajaxtab_unsel_content
+{
+    display: none;
+}
+
+.horizontal_ajaxtab .ajaxtab_sel_content
+{
+}
+
+
+/*
+    Author: Harish
+    Email: p.harish86@gmail.com
+    Blog: http://harishwords.wordpress.com
+*/

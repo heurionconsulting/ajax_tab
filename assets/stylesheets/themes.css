@@ -1,0 +1,187 @@
+/*----------------Vertical Black Theme--------------*/
+.blacktheme_vertical .ajaxtab_contents
+{
+    -moz-border-radius-bottomleft:0;
+    -moz-border-radius-bottomright:0;
+    -moz-border-radius-topleft:0;
+    -moz-border-radius-topright:0;
+    background:transparent none repeat scroll 0 0;
+    border-left:2px solid black;
+    width: 84%;
+}
+
+.blacktheme_vertical .ajaxtab_sel_tab
+{
+    color: white;
+    background-color: black;
+}
+
+.blacktheme_vertical .ajaxtab_unsel_tab
+{
+    color: black;
+    background-color: #DCDCDC;
+}
+
+/*----------------Vertical Green Theme--------------*/
+.greentheme_vertical .ajaxtab_contents
+{
+    -moz-border-radius-bottomleft:0;
+    -moz-border-radius-bottomright:0;
+    -moz-border-radius-topleft:0;
+    -moz-border-radius-topright:0;
+    background:transparent none repeat scroll 0 0;
+    border-left:2px solid Green;
+    width: 84%;
+}
+
+.greentheme_vertical .ajaxtab_sel_tab
+{
+    color: white;
+    background-color: green;
+}
+
+.greentheme_vertical .ajaxtab_unsel_tab
+{
+    color: black;
+    background-color: #c4f9e5;
+}
+
+/*----------------Vertical Pink Theme--------------*/
+.pinktheme_vertical .ajaxtab_contents
+{
+    -moz-border-radius-bottomleft:0;
+    -moz-border-radius-bottomright:0;
+    -moz-border-radius-topleft:0;
+    -moz-border-radius-topright:0;
+    background:transparent none repeat scroll 0 0;
+    border-left:2px solid lightpink;
+    width: 84%;
+}
+
+.pinktheme_vertical .ajaxtab_sel_tab
+{
+    color: white;
+    background-color: lightpink;
+}
+
+.pinktheme_vertical .ajaxtab_unsel_tab
+{
+    color: black;
+    background-color: #FFF0F5;
+}
+
+/*----------------Vertical Blue Theme--------------*/
+.bluetheme_vertical .ajaxtab_contents
+{
+    -moz-border-radius-bottomleft:0;
+    -moz-border-radius-bottomright:0;
+    -moz-border-radius-topleft:0;
+    -moz-border-radius-topright:0;
+    background:transparent none repeat scroll 0 0;
+    border-left:2px solid #6495ED;
+    width: 84%;
+}
+
+.bluetheme_vertical .ajaxtab_sel_tab
+{
+    color: white;
+    background-color: #6495ED;
+}
+
+.bluetheme_vertical .ajaxtab_unsel_tab
+{
+    color: black;
+    background-color: #E6E6FA;
+}
+
+/*----------------Horizontal Black Theme--------------*/
+.blacktheme_horizontal .ajaxtab_contents
+{
+    -moz-border-radius-bottomleft:0;
+    -moz-border-radius-bottomright:0;
+    -moz-border-radius-topleft:0;
+    -moz-border-radius-topright:0;
+    background:transparent none repeat scroll 0 0;
+    border-top:2px solid black;
+}
+
+.blacktheme_horizontal .ajaxtab_sel_tab
+{
+    color: white;
+    background-color: black;
+}
+
+.blacktheme_horizontal .ajaxtab_unsel_tab
+{
+    color: black;
+    background-color: #DCDCDC;
+}
+
+/*----------------Horizontal Green Theme--------------*/
+.greentheme_horizontal .ajaxtab_contents
+{
+    -moz-border-radius-bottomleft:0;
+    -moz-border-radius-bottomright:0;
+    -moz-border-radius-topleft:0;
+    -moz-border-radius-topright:0;
+    background:transparent none repeat scroll 0 0;
+    border-top:2px solid Green;
+}
+
+.greentheme_horizontal .ajaxtab_sel_tab
+{
+    color: white;
+    background-color: green;
+}
+
+.greentheme_horizontal .ajaxtab_unsel_tab
+{
+    color: black;
+    background-color: #c4f9e5;
+}
+
+/*----------------Horizontal Pink Theme--------------*/
+.pinktheme_horizontal .ajaxtab_contents
+{
+    -moz-border-radius-bottomleft:0;
+    -moz-border-radius-bottomright:0;
+    -moz-border-radius-topleft:0;
+    -moz-border-radius-topright:0;
+    background:transparent none repeat scroll 0 0;
+    border-top:2px solid lightpink;
+}
+
+.pinktheme_horizontal .ajaxtab_sel_tab
+{
+    color: white;
+    background-color: lightpink;
+}
+
+.pinktheme_horizontal .ajaxtab_unsel_tab
+{
+    color: black;
+    background-color: #FFF0F5;
+}
+
+/*----------------Horizontal Blue Theme--------------*/
+.bluetheme_horizontal .ajaxtab_contents
+{
+    -moz-border-radius-bottomleft:0;
+    -moz-border-radius-bottomright:0;
+    -moz-border-radius-topleft:0;
+    -moz-border-radius-topright:0;
+    background:transparent none repeat scroll 0 0;
+    border-top:2px solid #6495ED;
+}
+
+.bluetheme_horizontal .ajaxtab_sel_tab
+{
+    color: white;
+    background-color: #6495ED;
+}
+
+.bluetheme_horizontal .ajaxtab_unsel_tab
+{
+    color: black;
+    background-color: #E6E6FA;
+}

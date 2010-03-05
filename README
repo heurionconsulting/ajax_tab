@@ -1,0 +1,243 @@
+									Ajaxtab
+=================================================================================================================
+
+Description:
+============
+		Ajaxtab is an on-demand loader or a lazy loader which helps the developer with a bunch of javascript and
+	css to structure the contents in a tabular manner and load the contents only when it is needed. This plugin also
+	provides the ability to make javascript call backs with complete customization.
+	
+		Using ajaxtab a user can switch between the tabs or work with the rest of the page while the requested
+	contents are being loaded.
+	
+		Ajaxtab helps the developer to arrange tabs vertically or horizontally without any additional head breaks.
+	
+		Ajaxtab also comes with theming capability enabling the developers to select among the available themes and
+	also the ability to add themes of his own without having to change the existing themes. A theme in ajaxtab is nothing
+	but a bunch of css styles with the theme name as its css class selector.
+
+
+Advantages of Ajaxtab:
+======================
+	1. A single ajaxtab can have few tabs with contents loaded when the page is loaded and others get loaded only when
+	   it is required.
+	
+	2. We can have more than one ajaxtabs working in a single page without having to make any changes to javascripts.
+	
+	3. Tabcontents once loaded are not reloaded.
+	
+	4. Support of javascript call backs with complete customization (Eg: onselect, ondeselect, onloading, oncomplete, etc).
+	
+	5. Support for themes and addition of new themes.
+	
+	6. We can have tabs arranged vertically or horizontally.
+	
+	7. No browser specific javascripts used.
+	
+	8. Using ajaxtab saves space on the browser as well as reduces initial loading time.
+
+
+Installation
+============
+
+
+Usage
+=====
+	Once the installation is done, add the following code to your view (probably in layouts)
+
+		<%= ajaxtab_includes %>
+
+		This will include all the necessary javascript and css files that ajaxtab has come with.
+	
+	Note:- ajaxtab requires prototype.js library to function. For safety reasons include the library before using the above code.
+		
+	Add the following inside views to create ajaxtabs.
+	
+	<%= ajaxtab(tabs=[], options={}) %>
+	
+	where:
+		tabs => An array, where each element of the array is an hash with a minimum of following information:
+					:name => Name of the tab
+					
+					:content => Content of the tab. When this is present :url is ignored.
+						or
+					:url=>Url from which content can be fetched (Use url_for() method to generate the url)
+				
+				It can also contain following optional information:
+					:onselect => A javascript code that is executed whenever the tab is clicked
+					:ondeselect => A javascript code that is executed whenever the user leaves the tab.
+					
+				Following options are javascripts that are executed based on the status of the ajax call made to the
+				specified url. Note: these javascripts are executed not more than once, since the contents are
+				loaded from the url only once.
+					:loading => Executed when the ajax call is generated.
+					:complete => Executed when the ajax call is completed.
+					:success => Executed when the ajax call is successfull.
+					:failure => Executed when the ajax call fails.
+				
+				Any other options specied for the tab (apart from the above listed options), will go as html attributes
+				for the tab. Eg: if :style is specified, it will be used as the html style attribute for the tab.
+		
+		options => This is an optional argument and can contain following information:
+					:defaulttab => Index of the element in tabs which is selected by default. Default value is 0.
+					
+					:dimension => Specifies how the tabs are to be arranged. Value can be either :vertical or :horizontal.
+								  Default value of :dimension is :vertical.
+								  
+					:themeclass => Name of theme to be used. Ajaxtab has following themeclasses by derault
+									:bluetheme_vertical, :bluetheme_horizontal, :blacktheme_vertical, :blacktheme_horizontal
+									:pinktheme_vertical, :pinktheme_horizontal, :greentheme_vertical, :greentheme_horizontal
+								
+								   Default styles will be used if no themename is given or if css is not defined for the given themename
+								   
+								   New theme can also be created and can be used as themeclass. See "How to create themes?"
+								   below for more information on creating themes.
+								   
+					:name => A unique name for the ajaxtab. This name will be used as html id attribute. This name can
+							also be used to give specific styles to the ajaxtab and will override theme styles.
+							
+							Note:- :name should be unique to avoid conflicts. If name is not specified, ajaxtab will automatically
+							assign a unique name.
+					
+					:indicator => This is the content that is displayed while ajax is working. By default it contains an image_tag
+							for /images/ajaxtab/ajaxtab_loader.gif.
+		
+How to create themes?
+=====================
+		A theme in ajaxtab is nothing but a bunch of css styles and name of theme is used as a css class selector.
+	So defining a style for your theme will begin with "."(.<themename>). Themes are defined in public/stylesheets/ajaxtab/themes.css file
+	and this file is included by derfault with <%= ajaxtab_includes %>. Adding/modifying themes (styles) in this file will help you to sort out css precedence problems.
+	
+	Format for defining styles for your theme:
+	----------------------------------------------
+	
+	.<themename> .ajaxtab_contents
+	{
+	    /* Styles for ajaxtab contents */
+	}
+		
+	.<themename> .ajaxtab_sel_tab
+	{
+	    /* This style is applied for selected tab */
+	}
+		
+	.<themename> .ajaxtab_unsel_tab
+	{
+	    /* This style is applied for unselected tab */
+	}
+	
+	
+	Format for defining specific styles for the ajaxtab using ajaxtab name:
+	-----------------------------------------------------------------------
+	
+	#<name> .ajaxtab_contents
+	{
+	    /* Styles for ajaxtab contents */
+	}
+		
+	#<name> .ajaxtab_sel_tab
+	{
+	    /* This style is applied for selected tab */
+	}
+		
+	#<name> .ajaxtab_unsel_tab
+	{
+	    /* This style is applied for unselected tab */
+	}
+	
+	
+	For safety reasons make sure that changes made to this file are also updated in vendor/plugins/ajaxtab/assets/stylesheets/theme.css
+		
+Example
+=======
+	Using ajaxtab:
+	--------------
+		<%
+			tabs = []
+			tabs << {:name=>"Tab 1", :content=>"Contents for tab 1"}
+			tabs << {:name=>"Tab 2", :url=>url_for(:action=>"tab2")}
+			tabs << {:name=>"Tab 3", :content=>"Contents for tab 3"}
+			tabs << {:name=>"Tab 4", :url=>url_for(:action=>"tab4")}
+		%>
+		
+		<%= ajaxtab(tabs) %>
+	
+	Using partial as content:
+	-------------------------
+		<%
+			tabs = []
+			tabs << {:name=>"Tab 1", :content=>render(:partial=>'partialtab1')}
+			tabs << {:name=>"Tab 2", :url=>url_for(:action=>"tab2")}
+			tabs << {:name=>"Tab 3", :content=>render(:partial=>'partialtab3')}
+			tabs << {:name=>"Tab 4", :url=>url_for(:action=>"tab4")}
+		%>
+		
+		<%= ajaxtab(tabs) %>
+	
+	To arrange tabs horizontally:
+	-----------------------------
+		<%
+			tabs = []
+			tabs << {:name=>"Tab 1", :content=>"Contents for tab 1"}
+			tabs << {:name=>"Tab 2", :url=>url_for(:action=>"tab2")}
+			tabs << {:name=>"Tab 3", :content=>"Contents for tab 3"}
+			tabs << {:name=>"Tab 4", :url=>url_for(:action=>"tab4")}
+		%>
+		
+		<%= ajaxtab(tabs, :dimension=>:horizontal) %>
+	
+	
+	JavaScript callbacks:
+	---------------------
+		<%
+			tabs = []
+			tabs << {:name=>"Tab 1", :content=>"Contents for tab 1", :onselect=>"alert(':onselect for tab1');", :ondeselect=>"alert(':ondeselect for tab1');"}
+			tabs << {:name=>"Tab 2", :url=>url_for(:action=>"tab2")}
+			tabs << {:name=>"Tab 3", :content=>"Contents for tab 3"}
+			tabs << {:name=>"Tab 4", :url=>url_for(:action=>"tab4"), :onloading=>"alert('loading tab4');"}
+		%>
+		
+		<%= ajaxtab(tabs, :dimension=>:horizontal) %>
+	
+	
+	Applying themes:
+	----------------
+		<%
+			tabs = []
+			tabs << {:name=>"Tab 1", :content=>"Contents for tab 1", :onselect=>"alert(':onselect for tab1');", :ondeselect=>"alert(':ondeselect for tab1');"}
+			tabs << {:name=>"Tab 2", :url=>url_for(:action=>"tab2")}
+			tabs << {:name=>"Tab 3", :content=>"Contents for tab 3"}
+			tabs << {:name=>"Tab 4", :url=>url_for(:action=>"tab4"), :onloading=>"alert('loading tab4');"}
+		%>
+		
+		<%= ajaxtab(tabs, :dimension=>:horizontal, :themeclass=>:bluetheme_horizontal) %>
+	
+	
+	Choosing the defaulttab:
+	------------------------
+		<%
+			tabs = []
+			tabs << {:name=>"Tab 1", :content=>"Contents for tab 1", :onselect=>"alert(':onselect for tab1');", :ondeselect=>"alert(':ondeselect for tab1');"}
+			tabs << {:name=>"Tab 2", :url=>url_for(:action=>"tab2")}
+			tabs << {:name=>"Tab 3", :content=>"Contents for tab 3"}
+			tabs << {:name=>"Tab 4", :url=>url_for(:action=>"tab4"), :onloading=>"alert('loading tab4');"}
+		%>
+		
+		<%= ajaxtab(tabs, :dimension=>:horizontal, :themeclass=>:bluetheme_horizontal, :defaulttab=>3) %>
+	
+	
+Contributions
+=============
+
+
+Contact
+=======
+
+
+Disclaimer
+==========
+
+
+License
+=======
+	Copyright (c) 2009 [Harish], released under the MIT license

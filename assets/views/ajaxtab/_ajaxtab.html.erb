@@ -1,0 +1,60 @@
+<% reserved_keys = [:tabid, :onselect, :ondeselect, :content_style, :url, :content, :onloading, :oncomplete, :onsuccess, :onfailure] %>
+
+<div id="<%= ajaxtab_options[:name] %>" class="<%= ajaxtab_options[:themeclass].to_s %> <%= ajaxtab_options[:dimension].to_s %>_ajaxtab">
+	<div id="<%= ajaxtab_options[:name] %>_tabs" class="ajaxtab_tabs">
+		<% tabid=0; deftab = nil %>
+		<%
+			tabs.each do |details|
+				others = ""
+				details.each do |k, v|
+					unless reserved_keys.include? k
+						v = v.to_s.gsub("'", "\\\\'")
+						others += " #{k}='#{v}'"
+					end
+				end
+				if details[:url].nil? and details[:content].nil?
+					details[:content] = ""
+				end
+				
+				name = ajaxtab_options[:name]
+				url = details[:url].to_s.gsub("'", "\\\\'")
+				
+				aggregate_params = "'#{name}', '#{tabid}', '#{url}'"
+			%>
+
+			<div id="<%= ajaxtab_options[:name] %>_tab_<%= tabid %>" class="<%= ajaxtab_options[:name] %>_tab ajaxtab_unsel_tab" onclick="select_tab(<%= aggregate_params %>);" <%= others %> >
+				<%= details[:name].to_s %>
+				<%= hidden_field_tag "#{ajaxtab_options[:name]}_tab_#{tabid}_onselect", details[:onselect] %>
+				<%= hidden_field_tag "#{ajaxtab_options[:name]}_tab_#{tabid}_ondeselect", details[:ondeselect] %>
+				<%= hidden_field_tag "#{ajaxtab_options[:name]}_tab_#{tabid}_onloading", details[:onloading] %>
+				<%= hidden_field_tag "#{ajaxtab_options[:name]}_tab_#{tabid}_oncomplete", details[:oncomplete] %>
+				<%= hidden_field_tag "#{ajaxtab_options[:name]}_tab_#{tabid}_onsuccess", details[:onsuccess] %>
+				<%= hidden_field_tag "#{ajaxtab_options[:name]}_tab_#{tabid}_onfailure", details[:onfailure] %>
+			</div>
+
+			<% details[:tabid] = tabid; tabid += 1 %>
+		<% end %>
+		<div class="ajaxtab_clearheight"></div>
+	</div>
+	
+	<div id="<%= ajaxtab_options[:name] %>_contents" class="ajaxtab_contents">
+		<% tabs.each do |details| %>
+			<% contentid = details[:tabid] %>
+			<div id="<%= ajaxtab_options[:name] %>_content_<%= contentid %>" class="<%= ajaxtab_options[:name] %>_content ajaxtab_unsel_content" style="<%= details[:content_style] %>">
+				<%= details[:content] || "<div id='#{ajaxtab_options[:name]}_#{contentid}_loadingimage' class='ajaxtab_loading_image'> #{ajaxtab_options[:indicator]} </div>" %>
+			</div>
+		<% end %>
+		<div class="ajaxtab_clearheight"></div>
+	</div>
+	
+	<% if ajaxtab_options[:defaulttab] %>
+		<% details = tabs[ajaxtab_options[:defaulttab].to_i] %>
+		<% if details %>
+			<script>
+				authenticityToken = '<%= ajaxtab_options[:authenticity_token] %>';
+				select_tab('<%= ajaxtab_options[:name] %>', <%= details[:tabid] %>, '<%= details[:url].to_s.gsub("'", "\\\\'") %>', '<%= details[:loading].to_s.gsub("'", "\\\\'") %>', '<%= details[:complete].to_s.gsub("'", "\\\\'") %>', '<%= details[:success].to_s.gsub("'", "\\\\'") %>', '<%= details[:failure].to_s.gsub("'", "\\\\'") %>');
+			</script>
+		<% end %>
+	<% end %>
+	<div class="ajaxtab_clearheight"></div>
+</div>
