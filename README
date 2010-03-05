@@ -226,16 +226,9 @@ Example
 		<%= ajaxtab(tabs, :dimension=>:horizontal, :themeclass=>:bluetheme_horizontal, :defaulttab=>3) %>
 	
 	
-Contributions
-=============
-
-
 Contact
 =======
-
-
-Disclaimer
-==========
+    Email: p.harish86@gmail.com
 
 
 License
