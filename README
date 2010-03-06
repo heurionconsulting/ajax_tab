@@ -39,6 +39,9 @@ Advantages of Ajaxtab:
 
 Installation
 ============
+	1. Download the plugin from http://github.com/heurionconsulting/ajax_tab, extract and put it inside your vendor/plugin directory.
+		or
+	   Clone using "git clone git://github.com/heurionconsulting/ajax_tab.git" into your vendor/plugin directory
 
 
 Usage
@@ -49,7 +52,7 @@ Usage
 
 		This will include all the necessary javascript and css files that ajaxtab has come with.
 	
-	Note:- ajaxtab requires prototype.js library to function. For safety reasons include the library before using the above code.
+	Note:- ajaxtab requires prototype.js library to function. Include the library before using the "ajaxtab_includes".
 		
 	Add the following inside views to create ajaxtabs.
 	
