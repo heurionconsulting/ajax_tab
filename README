@@ -229,12 +229,22 @@ Example
 		<%= ajaxtab(tabs, :dimension=>:horizontal, :themeclass=>:bluetheme_horizontal, :defaulttab=>3) %>
 	
 	
---------------------------------------------------------------------
    Contributions / Credits
---------------------------------------------------------------------
+==================
 
 1. Harish P for initial development of the plugin
 2. Satish N Kota for testing, Review of the Plugin
+
+
+Contact
+========
+
+Any issues regarding bugs in plugin code or in the data/information can be brought to notice of Heurion Consulting
+
+email: info@heurionconsulting.com
+website: www.heurionconsulting.com
+blog: http://railsvoice.wordpress.com
+wiki: http://wiki.github.com/heurionconsulting/ajax_tab
 
 License
 =======
