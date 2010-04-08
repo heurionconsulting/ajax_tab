@@ -229,11 +229,13 @@ Example
 		<%= ajaxtab(tabs, :dimension=>:horizontal, :themeclass=>:bluetheme_horizontal, :defaulttab=>3) %>
 	
 	
-Contact
-=======
-    Email: p.harish86@gmail.com
+--------------------------------------------------------------------
+   Contributions / Credits
+--------------------------------------------------------------------
 
+1. Harish P for initial development of the plugin
+2. Satish N Kota for testing, Review of the Plugin
 
 License
 =======
-	Copyright (c) 2010 [Harish], released under the MIT license
+	Copyright (c) 2010 HEURION CONSULTING, released under the MIT license
